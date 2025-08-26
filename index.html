@@ -5,158 +5,455 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bloomspace.ai & Amara Raja Partnership</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Inter', sans-serif;
-            /* Enhanced gradient background for more visual appeal */
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #475569 75%, #64748b 100%);
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
         }
-        .slide-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(650px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
-            max-width: 1500px;
-            margin: auto;
+        
+        /* Animated background elements */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 60%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
         }
-        .slide {
-            background-color: white;
-            /* Enhanced border and shadow for better depth */
-            border: 1px solid #cbd5e1;
-            border-radius: 1.5rem;
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.08), 0 8px 10px -6px rgb(0 0 0 / 0.05);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        
+        /* Header with glassmorphism */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1.5rem 0;
+            animation: slideDown 0.8s ease-out;
         }
-        .slide:hover {
-            transform: translateY(-8px);
-            /* More dramatic hover shadow */
-            box-shadow: 0 32px 40px -12px rgb(0 0 0 / 0.15), 0 12px 16px -8px rgb(0 0 0 / 0.08);
-        }
-        .slide-header {
-            /* Updated to modern dark slate with gradient */
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            color: white;
-            padding: 1.25rem 1.5rem;
-            font-weight: 600;
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            /* Added subtle border bottom */
-            border-bottom: 2px solid #334155;
         }
-        .slide-content {
-            padding: 2.5rem;
-            flex-grow: 1;
+        
+        .logo {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            align-items: center;
+            gap: 1rem;
         }
-        .flow-box {
-            border-radius: 0.5rem;
-            padding: 0.75rem;
-            border: 2px solid;
-            text-align: left;
-            font-size: 0.875rem;
-            width: 150px;
-            height: 100%;
-        }
-        .flow-arrow {
+        
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
-            text-align: center;
-            font-size: 0.75rem;
-            color: #64748b;
-            flex-grow: 1;
-            position: relative;
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
+            animation: float 3s ease-in-out infinite;
         }
-        .flow-arrow-forward:after {
-            content: '→';
-            font-size: 2rem;
-            color: #cbd5e1;
-            margin-top: 4px;
-        }
-        .flow-arrow-backward:before {
-            content: '←';
-            font-size: 2rem;
-            color: #fca5a5;
-            margin-bottom: 4px;
-        }
-        @media (max-width: 640px) {
-            .slide-container {
-                grid-template-columns: 1fr;
-                padding: 1rem;
-            }
-            .slide-content {
-                padding: 1.5rem;
-            }
-        }
-
-        .workflow-image {
-            width: 100%; 
-            height: auto; 
-            /* Significantly increased max-height for bigger image */
-            max-height: 90vh; 
-            min-height: 400px;
-            display: block;
-            margin: 20px auto 0;
-            border-radius: 12px;
-            /* Added subtle shadow to image */
-            box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1);
-        }
-
-        /* Added custom brand colors */
-        .bloomspace-brand {
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        
+        .logo-text {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
-        .amara-raja-brand {
+        
+        .slide-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
+            gap: 3rem;
+            padding: 3rem 2rem;
+            max-width: 1600px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        .slide {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+                        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 50%, #06d6a0 100%);
+            border-radius: 24px 24px 0 0;
+        }
+        
+        .slide:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 40px 80px -12px rgba(0, 0, 0, 0.35),
+                        0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+        }
+        
+        .slide-header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 2rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .slide:hover .slide-header::before {
+            left: 100%;
+        }
+        
+        .slide-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+        
+        .slide-subtitle {
+            font-size: 0.875rem;
+            opacity: 0.8;
+            font-weight: 500;
+        }
+        
+        .slide-content {
+            padding: 3rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .workflow-image {
+            width: 100%;
+            height: auto;
+            max-height: 70vh;
+            min-height: 350px;
+            display: block;
+            margin: 1rem auto 0;
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease;
+        }
+        
+        .workflow-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .brand-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+        }
+        
+        .amara-brand {
             background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            font-weight: 900;
         }
-
-        /* Enhanced button and interactive elements */
-        .enhanced-card {
-            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-            border: 2px solid #e2e8f0;
+        
+        .focus-box {
+            background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .focus-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .focus-box:hover::before {
+            opacity: 1;
+        }
+        
+        .warning-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .warning-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.25);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .impact-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 2px solid rgba(34, 197, 94, 0.2);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
-
-        .enhanced-card:hover {
-            border-color: #3b82f6;
-            transform: translateY(-2px);
+        
+        .impact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .impact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(34, 197, 94, 0.15);
+            border-color: rgba(34, 197, 94, 0.4);
+        }
+        
+        .impact-card:hover::before {
+            opacity: 1;
+        }
+        
+        .impact-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #22c55e 0%, #10b981 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 14px rgba(34, 197, 94, 0.25);
+            flex-shrink: 0;
+        }
+        
+        .outcome-box {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border: 2px solid rgba(239, 68, 68, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .outcome-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(220, 38, 38, 0.05) 100%);
+        }
+        
+        /* Animations */
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(60px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .slide-container {
+                grid-template-columns: 1fr;
+                padding: 2rem 1rem;
+                gap: 2rem;
+            }
+            
+            .slide-content {
+                padding: 2rem;
+            }
+            
+            .header-content {
+                padding: 0 1rem;
+            }
+            
+            .warning-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
         }
     </style>
 </head>
 <body>
+    <!-- Enhanced Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                </div>
+                <div class="logo-text">Bloomspace.ai Partnership</div>
+            </div>
+            <div class="text-white/70 text-sm font-medium">Strategic Partnership Presentation</div>
+        </div>
+    </div>
 
     <div class="slide-container">
-
         <!-- Slide 1: Introduction -->
         <div class="slide">
             <div class="slide-header">
-                <span>Slide 1: Introduction</span>
-                <span class="text-sm opacity-70">Partnership Overview</span>
+                <span class="slide-title">Introduction</span>
+                <span class="slide-subtitle">Partnership Overview</span>
             </div>
-            <div class="slide-content space-y-8">
-                <!-- Updated brand colors with gradient text -->
-                <h1 class="text-4xl font-bold text-slate-800">We are <span class="bloomspace-brand font-extrabold">Bloomspace.ai</span></h1>
-                <p class="text-lg text-slate-600 leading-relaxed">An Artificial Intelligence company helping organizations unlock efficiency and accuracy by automating complex, repetitive processes.</p>
-
-                <!-- Enhanced focus box with better styling -->
-                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-6 mt-4">
-                    <p class="font-semibold text-blue-900 text-lg">Our Focus: <span class="font-normal text-blue-800">Solving vendor & client compliance form automation with AI.</span></p>
+            <div class="slide-content">
+                <h1 class="text-5xl font-black text-slate-800 leading-tight">
+                    We are <span class="brand-text">Bloomspace.ai</span>
+                </h1>
+                <p class="text-xl text-slate-600 leading-relaxed font-medium">
+                    An Artificial Intelligence company helping organizations unlock efficiency and accuracy by automating complex, repetitive processes.
+                </p>
+                
+                <div class="focus-box">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                        <span class="font-bold text-blue-900 text-xl">Our Focus</span>
+                    </div>
+                    <p class="text-blue-800 text-lg font-medium">
+                        Solving vendor & client compliance form automation with AI-powered intelligent solutions.
+                    </p>
                 </div>
             </div>
         </div>
@@ -164,94 +461,158 @@
         <!-- Slide 2: Problem Statement -->
         <div class="slide">
             <div class="slide-header">
-                <span>Slide 2: Problem Statement</span>
-                <span class="text-sm opacity-70">The Challenge</span>
+                <span class="slide-title">Problem Statement</span>
+                <span class="slide-subtitle">The Critical Challenge</span>
             </div>
-            <div class="slide-content space-y-6">
-                <div class="flex items-center space-x-4">
-                    <!-- Enhanced warning icon styling -->
-                    <div class="bg-gradient-to-br from-red-100 to-red-200 p-4 rounded-full shadow-lg">
-                        <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            <div class="slide-content">
+                <div class="warning-section">
+                    <div class="warning-icon">
+                        <svg class="w-10 h-10 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
                     </div>
-                    <h1 class="text-4xl font-bold text-slate-800">The Compliance Bottleneck</h1>
+                    <h1 class="text-5xl font-black text-slate-800">The Compliance Bottleneck</h1>
                 </div>
-                <ul class="space-y-4 text-slate-600 text-lg list-disc list-inside leading-relaxed">
-                    <li>Company must complete <span class="font-bold text-slate-700">40–50 vendor and client compliance forms</span> each year.</li>
-                    <li>Each form consumes approximately <span class="font-bold text-slate-700">1.5 working days</span> of a critical resource.</li>
-                    <li>Data is <span class="font-bold text-slate-700">fragmented</span> across multiple disconnected files & systems.</li>
-                    <li>The process is <span class="font-bold text-red-600">manual, error-prone, and slow</span>, risking compliance delays.</li>
-                </ul>
-                <!-- Enhanced outcome box with gradient -->
-                <div class="bg-gradient-to-r from-red-50 to-rose-50 border-2 border-red-200 rounded-xl p-6 mt-4 text-center">
-                    <p class="font-semibold text-red-800 text-xl">Outcome: Inefficiency, Compliance Risks, and Loss of Stakeholder Trust.</p>
+                
+                <div class="space-y-6">
+                    <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-slate-200">
+                        <h3 class="font-bold text-slate-800 text-lg mb-4">Key Challenges:</h3>
+                        <ul class="space-y-4 text-slate-700 text-lg">
+                            <li class="flex items-start gap-3">
+                                <div class="w-2 h-2 bg-red-500 rounded-full mt-3 flex-shrink-0"></div>
+                                <span>Company must complete <span class="font-bold text-slate-900">40–50 vendor and client compliance forms</span> each year.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="w-2 h-2 bg-red-500 rounded-full mt-3 flex-shrink-0"></div>
+                                <span>Each form consumes approximately <span class="font-bold text-slate-900">1.5 working days</span> of a critical resource.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="w-2 h-2 bg-red-500 rounded-full mt-3 flex-shrink-0"></div>
+                                <span>Data is <span class="font-bold text-slate-900">fragmented</span> across multiple disconnected files & systems.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="w-2 h-2 bg-red-500 rounded-full mt-3 flex-shrink-0"></div>
+                                <span>The process is <span class="font-bold text-red-600">manual, error-prone, and slow</span>, risking compliance delays.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="outcome-box">
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-center gap-3 mb-3">
+                            <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="font-bold text-red-800 text-2xl">Critical Outcome</span>
+                        </div>
+                        <p class="font-bold text-red-800 text-xl">Inefficiency, Compliance Risks, and Loss of Stakeholder Trust</p>
+                    </div>
                 </div>
             </div>
         </div>
         
-        <!-- Slide 3: Automated Workflow (Detailed & Aligned) -->
+        <!-- Slide 3: Automated Workflow -->
         <div class="slide">
             <div class="slide-header">
-                <span>Slide 3: Automated Workflow</span>
-                <span class="text-sm opacity-70">Our Intelligent Process</span>
+                <span class="slide-title">Automated Workflow</span>
+                <span class="slide-subtitle">Our Intelligent Process</span>
             </div>
-            <!-- Reduced padding to give more space for larger image -->
-            <div class="slide-content space-y-4" style="padding: 1.5rem 2.5rem 2.5rem 2.5rem;">
-                <h1 class="text-3xl font-bold text-slate-800 text-center mb-4">Automated Workflow</h1>
-                <!-- Image will now be significantly larger due to updated CSS -->
-                <img class="workflow-image" src="Flowchart2.png" alt="A diagram of the automated deployment workflow">
+            <div class="slide-content" style="padding: 2rem 3rem 3rem 3rem;">
+                <div class="text-center mb-6">
+                    <h1 class="text-4xl font-black text-slate-800 mb-3">
+                        <span class="brand-text">AI-Powered</span> Workflow
+                    </h1>
+                    <p class="text-lg text-slate-600">Streamlined automation from data collection to compliance delivery</p>
+                </div>
+                <img class="workflow-image" src="Flowchart2.png" alt="Comprehensive automated deployment workflow diagram showing AI-powered form processing">
             </div>
         </div>
 
         <!-- Slide 4: Savings & Impact -->
         <div class="slide">
             <div class="slide-header">
-                <span>Slide 4: Savings & Impact</span>
-                <span class="text-sm opacity-70">Results with <span class="bloomspace-brand">Bloomspace.ai</span></span>
+                <span class="slide-title">Savings & Impact</span>
+                <span class="slide-subtitle">Transformational Results with <span class="text-blue-300 font-bold">Bloomspace.ai</span></span>
             </div>
-            <div class="slide-content space-y-6">
-                <!-- Updated title with brand colors -->
-                <h1 class="text-4xl font-bold text-slate-800">The <span class="bloomspace-brand font-extrabold">Automated</span> Impact</h1>
-                <p class="text-lg text-slate-600 leading-relaxed">Transforming a multi-day manual process into a minutes-long automated workflow.</p>
+            <div class="slide-content">
+                <div class="text-center mb-8">
+                    <h1 class="text-5xl font-black text-slate-800 mb-4">
+                        The <span class="brand-text">Automated</span> Impact
+                    </h1>
+                    <p class="text-xl text-slate-600 leading-relaxed">
+                        Transforming a multi-day manual process into a minutes-long automated workflow.
+                    </p>
+                </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 pt-4">
-                    <!-- Enhanced impact cards with better gradients and shadows -->
+                <div class="impact-grid">
                     <!-- Time Savings -->
-                    <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border-2 border-green-200 flex items-start space-x-4 shadow-lg hover:shadow-xl transition-all duration-300">
-                        <div class="bg-gradient-to-br from-green-200 to-green-300 p-3 rounded-full shadow-md"><svg class="w-6 h-6 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-                        <div>
-                            <h3 class="font-bold text-green-800 text-lg">Time Savings</h3>
-                            <p class="text-green-700 font-medium"><span class="line-through">1.5 days</span> &rarr; <span class="font-bold text-green-800">3 minutes</span> per form</p>
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <div class="relative z-10">
+                            <h3 class="font-bold text-green-800 text-xl mb-1">Time Savings</h3>
+                            <p class="text-green-700 font-semibold text-lg">
+                                <span class="line-through text-gray-500">1.5 days</span> → <span class="font-black text-green-800">3 minutes</span> per form
+                            </p>
                         </div>
                     </div>
+                    
                     <!-- Capacity Released -->
-                    <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border-2 border-green-200 flex items-start space-x-4 shadow-lg hover:shadow-xl transition-all duration-300">
-                        <div class="bg-gradient-to-br from-green-200 to-green-300 p-3 rounded-full shadow-md"><svg class="w-6 h-6 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
-                        <div>
-                            <h3 class="font-bold text-green-800 text-lg">Capacity Released</h3>
-                            <p class="text-green-700 font-medium"><span class="font-bold text-green-800">60-75 days/year</span> of critical resource freed</p>
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <div class="relative z-10">
+                            <h3 class="font-bold text-green-800 text-xl mb-1">Capacity Released</h3>
+                            <p class="text-green-700 font-semibold text-lg">
+                                <span class="font-black text-green-800">60-75 days/year</span> of critical resource freed
+                            </p>
                         </div>
                     </div>
+                    
                     <!-- Error Reduction -->
-                    <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border-2 border-green-200 flex items-start space-x-4 shadow-lg hover:shadow-xl transition-all duration-300">
-                        <div class="bg-gradient-to-br from-green-200 to-green-300 p-3 rounded-full shadow-md"><svg class="w-6 h-6 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-                        <div>
-                            <h3 class="font-bold text-green-800 text-lg">Error Reduction</h3>
-                            <p class="text-green-700 font-medium">Near <span class="font-bold text-green-800">100% data accuracy</span></p>
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <div class="relative z-10">
+                            <h3 class="font-bold text-green-800 text-xl mb-1">Error Reduction</h3>
+                            <p class="text-green-700 font-semibold text-lg">
+                                Near <span class="font-black text-green-800">100% data accuracy</span>
+                            </p>
                         </div>
                     </div>
+                    
                     <!-- Faster Compliance -->
-                    <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border-2 border-green-200 flex items-start space-x-4 shadow-lg hover:shadow-xl transition-all duration-300">
-                         <div class="bg-gradient-to-br from-green-200 to-green-300 p-3 rounded-full shadow-md"><svg class="w-6 h-6 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg></div>
-                        <div>
-                            <h3 class="font-bold text-green-800 text-lg">Faster Compliance</h3>
-                            <p class="text-green-700 font-medium">Reporting cycles <span class="font-bold text-green-800">70% shorter</span></p>
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="relative z-10">
+                            <h3 class="font-bold text-green-800 text-xl mb-1">Faster Compliance</h3>
+                            <p class="text-green-700 font-semibold text-lg">
+                                Reporting cycles <span class="font-black text-green-800">70% shorter</span>
+                            </p>
                         </div>
                     </div>
                 </div>
+                
+                <div class="mt-8 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl border-2 border-blue-200 text-center">
+                    <h3 class="font-bold text-2xl text-slate-800 mb-2">Ready to Transform Your Compliance Process?</h3>
+                    <p class="text-lg text-slate-700">Partner with <span class="brand-text font-bold">Bloomspace.ai</span> to revolutionize your workflow efficiency.</p>
+                </div>
             </div>
         </div>
-
     </div>
-
 </body>
 </html>
