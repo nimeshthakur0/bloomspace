@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloomspace.ai & Amara Raja Partnership</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light gray background for the page */
+        }
+        .slide-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(650px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1500px;
+            margin: auto;
+        }
+        .slide {
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .slide:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .slide-header {
+            background-color: #0f172a; /* Dark blue/black header */
+            color: white;
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .slide-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .flow-box {
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            border: 2px solid;
+            text-align: left;
+            font-size: 0.875rem;
+            width: 150px; /* Fixed width for alignment */
+            height: 100%;
+        }
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #64748b;
+            flex-grow: 1;
+            position: relative;
+        }
+        .flow-arrow-forward:after {
+            content: '→';
+            font-size: 2rem;
+            color: #cbd5e1;
+            margin-top: 4px;
+        }
+        .flow-arrow-backward:before {
+            content: '←';
+            font-size: 2rem;
+            color: #fca5a5; /* Red for feedback loop */
+            margin-bottom: 4px;
+        }
+        @media (max-width: 640px) {
+            .slide-container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            .slide-content {
+                padding: 1.5rem;
+            }
+        }
+
+    .workflow-image {
+        width: 100%; 
+        height: auto; 
+        max-height: 75vh; 
+        display: block;
+        margin: 20px auto 0;
+        border-radius: 8px;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="slide-container">
+
+        <!-- Slide 1: Introduction -->
+        <div class="slide">
+            <div class="slide-header">
+                <span>Slide 1: Introduction</span>
+                <span class="text-sm opacity-70">Bloomspace.ai</span>
+            </div>
+            <div class="slide-content space-y-8">
+                <h1 class="text-4xl font-bold text-slate-800">We are <span class="text-blue-600">Bloomspace.ai</span></h1>
+                <p class="text-lg text-slate-600">An Artificial Intelligence company helping organizations unlock efficiency and accuracy by automating complex, repetitive processes.</p>
+                
+                <div class="border-t pt-6">
+                    <h2 class="text-sm font-semibold text-slate-500 tracking-wider mb-4">In partnership with</h2>
+                    <div class="flex items-center space-x-6">
+                        <img src="https://placehold.co/200x60/0f172a/ffffff?text=Bloomspace.ai&font=inter" alt="Bloomspace.ai Logo" class="h-10 object-contain" onerror="this.onerror=null;this.src='https://placehold.co/200x60/0f172a/ffffff?text=Bloomspace.ai';">
+                        <div class="text-2xl font-thin text-slate-300">+</div>
+                        <img src="https://placehold.co/200x60/d91e2b/ffffff?text=AMARA+RAJA&font=inter" alt="Amara Raja Logo" class="h-12 object-contain" onerror="this.onerror=null;this.src='https://placehold.co/200x60/d91e2b/ffffff?text=AMARA+RAJA';">
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
+                    <p class="font-semibold text-blue-800">Our Focus: <span class="font-normal">Solving vendor & client compliance form automation with AI.</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Problem Statement -->
+        <div class="slide">
+            <div class="slide-header">
+                <span>Slide 2: Problem Statement</span>
+                <span class="text-sm opacity-70">The Challenge</span>
+            </div>
+            <div class="slide-content space-y-6">
+                <div class="flex items-center space-x-4">
+                    <div class="bg-red-100 p-3 rounded-full">
+                        <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    </div>
+                    <h1 class="text-4xl font-bold text-slate-800">The Compliance Bottleneck</h1>
+                </div>
+                <ul class="space-y-4 text-slate-600 text-lg list-disc list-inside">
+                    <li>Company must complete <span class="font-bold text-slate-700">40–50 vendor and client compliance forms</span> each year.</li>
+                    <li>Each form consumes approximately <span class="font-bold text-slate-700">1.5 working days</span> of a critical resource.</li>
+                    <li>Data is <span class="font-bold text-slate-700">fragmented</span> across multiple disconnected files & systems.</li>
+                    <li>The process is <span class="font-bold text-red-600">manual, error-prone, and slow</span>, risking compliance delays.</li>
+                </ul>
+                <div class="bg-red-50 border border-red-200 rounded-lg p-5 mt-4 text-center">
+                    <p class="font-semibold text-red-800 text-xl">Outcome: Inefficiency, Compliance Risks, and Loss of Stakeholder Trust.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 3: Automated Workflow (Detailed & Aligned) -->
+        <div class="slide">
+            <div class="slide-header">
+                <span>Slide 3: Automated Workflow</span>
+                <span class="text-sm opacity-70">Our Intelligent Process</span>
+            </div>
+            <div class="slide-content space-y-4">
+                <h1 class="text-3xl font-bold text-slate-800 text-center mb-4">Automated Workflow</h1>
+                <img class="workflow-image" src="Flowchart.png" alt="A diagram of the automated deployment workflow">
+            </div>
+        </div>
+
+        <!-- Slide 4: Savings & Impact -->
+        <div class="slide">
+            <div class="slide-header">
+                <span>Slide 4: Savings & Impact</span>
+                <span class="text-sm opacity-70">Results with Bloomspace.ai</span>
+            </div>
+            <div class="slide-content space-y-6">
+                <h1 class="text-4xl font-bold text-slate-800">The <span class="text-blue-600">Automated</span> Impact</h1>
+                <p class="text-lg text-slate-600">Transforming a multi-day manual process into a minutes-long automated workflow.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 pt-4">
+                    <!-- Time Savings -->
+                    <div class="bg-green-50 p-4 rounded-lg flex items-start space-x-4">
+                        <div class="bg-green-200 p-2 rounded-full"><svg class="w-6 h-6 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                        <div>
+                            <h3 class="font-bold text-green-800">Time Savings</h3>
+                            <p class="text-green-700"><span class="line-through">1.5 days</span> &rarr; <span class="font-bold">3 minutes</span> per form</p>
+                        </div>
+                    </div>
+                    <!-- Capacity Released -->
+                    <div class="bg-green-50 p-4 rounded-lg flex items-start space-x-4">
+                        <div class="bg-green-200 p-2 rounded-full"><svg class="w-6 h-6 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+                        <div>
+                            <h3 class="font-bold text-green-800">Capacity Released</h3>
+                            <p class="text-green-700"><span class="font-bold">60-75 days/year</span> of critical resource freed</p>
+                        </div>
+                    </div>
+                    <!-- Error Reduction -->
+                    <div class="bg-green-50 p-4 rounded-lg flex items-start space-x-4">
+                        <div class="bg-green-200 p-2 rounded-full"><svg class="w-6 h-6 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                        <div>
+                            <h3 class="font-bold text-green-800">Error Reduction</h3>
+                            <p class="text-green-700">Near <span class="font-bold">100% data accuracy</span></p>
+                        </div>
+                    </div>
+                    <!-- Faster Compliance -->
+                    <div class="bg-green-50 p-4 rounded-lg flex items-start space-x-4">
+                         <div class="bg-green-200 p-2 rounded-full"><svg class="w-6 h-6 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg></div>
+                        <div>
+                            <h3 class="font-bold text-green-800">Faster Compliance</h3>
+                            <p class="text-green-700">Reporting cycles <span class="font-bold">70% shorter</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
